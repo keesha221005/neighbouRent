@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE `booking` ADD COLUMN `co2Saved` DOUBLE NOT NULL DEFAULT 0;
+
+-- AlterTable
+ALTER TABLE `user` ADD COLUMN `idDocument` VARCHAR(191) NULL,
+    ADD COLUMN `idStatus` VARCHAR(191) NOT NULL DEFAULT 'none',
+    ADD COLUMN `idType` VARCHAR(191) NULL,
+    ADD COLUMN `idVerified` BOOLEAN NOT NULL DEFAULT false;

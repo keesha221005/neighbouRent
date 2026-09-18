@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  password      String
+  phone         String?
+  avatar        String?
+  verified      Boolean   @default(false)
+
+  // ID Verification
+  idDocument    String?
+  idType        String?
+  idStatus      String    @default("none")
+  idVerified    Boolean   @default(false)
+
+  // Email OTP verification
+  emailVerified Boolean   @default(false)
+  otpCode       String?
+  otpExpiry     DateTime?
+
+  createdAt     DateTime  @default(now())
+  items         Item[]
+  bookings      Booking[]
+  reviews       Review[]
+}
+
+model Item {
+  id             String    @id @default(uuid())
+  title          String
+  description    String
+  category       String
+  pricePerDay    Float
+  deposit        Float     @default(0)
+  estimatedValue Float?    // what this item would cost to buy new — set by owner
+  images         Json
+  latitude       Float
+  longitude      Float
+  address        String    @db.Text
+  available      Boolean   @default(true)
+  ownerId        String
+  owner          User      @relation(fields: [ownerId], references: [id])
+  bookings       Booking[]
+  reviews        Review[]
+  createdAt      DateTime  @default(now())
+}
+
+model Booking {
+  id          String    @id @default(uuid())
+  startDate   DateTime
+  endDate     DateTime
+  totalPrice  Float
+  deposit     Float
+  status      String    @default("pending")
+  renterId    String
+  renter      User      @relation(fields: [renterId], references: [id])
+  itemId      String
+  item        Item      @relation(fields: [itemId], references: [id])
+  payment     Payment?
+  co2Saved    Float     @default(0)
+  moneySaved  Float     @default(0)   // estimatedValue - totalPrice, calculated on completion
+  createdAt   DateTime  @default(now())
+}
+
+model Payment {
+  id                    String   @id @default(uuid())
+  amount                Float
+  status                String   @default("pending")
+  gateway               String   @default("stripe")
+  stripePaymentIntentId String?
+  bookingId             String   @unique
+  booking               Booking  @relation(fields: [bookingId], references: [id])
+  createdAt             DateTime @default(now())
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  itemId    String
+  item      Item     @relation(fields: [itemId], references: [id])
+  createdAt DateTime @default(now())
+}

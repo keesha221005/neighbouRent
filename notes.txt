@@ -1,0 +1,3 @@
+frontend : npm run dev
+backend : npx nodemon src/index.js
+to see DB: in backend -> npx prisma studio

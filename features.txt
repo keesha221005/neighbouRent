@@ -1,0 +1,11 @@
+login/register
+list an item based on category
+add item images either by local device or image address through web
+an AI options to suggest the price of the item based on the location of the item  
+search items through map/filters/location range
+select the item and choose the date for booking and then payment through stripe
+if cost of item is > 500, then neeeds OTP verification through SMTP(mail)
+booking request needs to be approved by the owner to mark it as active 
+once the renter/owner marks the booking as completed it calculates the CO2 saved by renter by avoiding buying an item 
+at this point it asks the renter to leave a review which reflects in the browse items page 
+mail sent to renter/owner based in status of booking 
