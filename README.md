@@ -1,4 +1,5 @@
 NeighbouRent --- AWS Agentic Neighborhood Sharing Network
+hi hello
 
 Hackathon direction: Turn NeighbouRent from a conventional
 peer-to-peer rental marketplace into an AI-powered neighborhood
