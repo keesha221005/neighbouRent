@@ -156,9 +156,8 @@ export default function AdminPage() {
         <div className="flex gap-1 bg-gray-100 rounded-xl p-1 mb-5 w-fit">
           {tabs.map(t => (
             <button key={t.id} onClick={() => setTab(t.id)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors relative ${
-                tab === t.id ? "bg-white shadow-sm text-gray-900" : "text-gray-500 hover:text-gray-700"
-              }`}>
+              className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors relative ${tab === t.id ? "bg-white shadow-sm text-gray-900" : "text-gray-500 hover:text-gray-700"
+                }`}>
               {t.label}
               {t.count > 0 && (
                 <span className="ml-1.5 bg-indigo-600 text-white text-xs px-1.5 py-0.5 rounded-full">{t.count}</span>
@@ -240,12 +239,11 @@ export default function AdminPage() {
                             : <span className="text-gray-300">—</span>}
                         </td>
                         <td className="px-4 py-3">
-                          <span className={`text-xs px-2 py-0.5 rounded-full ${
-                            u.idStatus === "verified" ? "bg-green-50 text-green-700"
-                            : u.idStatus === "pending" ? "bg-yellow-50 text-yellow-700"
-                            : u.idStatus === "rejected" ? "bg-red-50 text-red-600"
-                            : "bg-gray-50 text-gray-400"
-                          }`}>
+                          <span className={`text-xs px-2 py-0.5 rounded-full ${u.idStatus === "verified" ? "bg-green-50 text-green-700"
+                              : u.idStatus === "pending" ? "bg-yellow-50 text-yellow-700"
+                                : u.idStatus === "rejected" ? "bg-red-50 text-red-600"
+                                  : "bg-gray-50 text-gray-400"
+                            }`}>
                             {u.idStatus}
                           </span>
                         </td>

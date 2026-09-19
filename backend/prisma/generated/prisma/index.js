@@ -250,7 +250,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\vs code\\neighbourent\\backend\\prisma\\generated\\prisma",
+      "value": "C:\\Users\\shrin\\OneDrive\\Desktop\\neighbrent\\neighbouRent\\backend\\prisma\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -264,7 +264,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\vs code\\neighbourent\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\shrin\\OneDrive\\Desktop\\neighbrent\\neighbouRent\\backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -278,7 +278,6 @@ const config = {
     "db"
   ],
   "activeProvider": "mysql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
