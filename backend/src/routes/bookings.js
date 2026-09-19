@@ -90,7 +90,7 @@ async function sendBookingEmail(renterEmail, renterName, itemTitle, status, star
         </div>
         <p style="color: #6b7280; font-size: 14px; text-align: center;">${config.action}</p>
         <div style="text-align: center; margin-top: 24px;">
-          <a href="http://localhost:5173/dashboard"
+          <a href="${process.env.CLIENT_URL || "http://localhost:5173"}/dashboard"
             style="background: #4f46e5; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
             View Dashboard →
           </a>
